@@ -2,11 +2,15 @@ import { Component } from 'react';
 
 class Mynav extends Component {
     render(){   
+        console.log("네브 실행");
         let lists = [];
         let data = this.props.data;
         let i = 0;
         while(i<data.length){
-            lists.push(<li key={data[i].title}><a href="">{data[i].title}</a></li>);
+            lists.push(<li key={data[i].id}><a href="" data-id={data[i].id} onClick={(e)=>{
+                e.preventDefault();
+                this.props.onChangePage(e.target.getAttribute('data-id'));
+              }}>{data[i].title}</a></li>);
             i++;
         }
 
