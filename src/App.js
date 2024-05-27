@@ -13,12 +13,26 @@ import Myarticle from './components/Myarticle';
 // }
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      subject:{
+        title:'React',
+        desc:'Single Page Application'
+      },
+      menus:[
+        {id:1, title:'HTML', desc:'Hypertext markup language'},
+        {id:2, title:'CSS', desc:'CSS is for design'},
+   
+      ]
+    }
+  }
+
   render(){
       return (
     <div className="App">
-      <Myheader title="React1" desc="Single Page Application1"/>
-      
-      <Mynav/>
+      <Myheader title={this.state.subject.title} desc={this.state.subject.desc}/>
+      <Mynav data={this.state.menus}/>
       <Myarticle title="HTML" desc="Hypertext markup language"/>
     </div>
   );
