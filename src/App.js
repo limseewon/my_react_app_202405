@@ -12,10 +12,11 @@ import './App.css';
 
 class Myheader extends Component {
   render(){
+    console.log(this)
       return (
         <header>
-          <h1 class="logo">React</h1>
-          <p>Single page Application</p>
+          <h1 class="logo">{this.props.title}</h1>
+          <p>{this.props.desc}</p>
         </header>
   );
   }
@@ -49,7 +50,7 @@ class App extends Component {
   render(){
       return (
     <div className="App">
-      <Myheader/>
+      <Myheader title="React1" desc="Single Page Application1"/>
       <Mynav/>
       <Myarticle/>
     </div>
