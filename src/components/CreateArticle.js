@@ -10,7 +10,7 @@ class CreateArticle extends Component {
             <form method="post" onSubmit={(e)=>{
               e.preventDefault();
               // debugger;
-              this.props.onSubmit(e.target.title.value, e.target.desc.value);
+              this.props.onSubmit(e.target.title.value, e.target.desc.value, e.target.level.value);
 
             }}>
               <p>
@@ -18,6 +18,9 @@ class CreateArticle extends Component {
               </p>
               <p>
                 <textarea name="desc" placeholder="description"></textarea>
+              </p>
+              <p>
+                <input type="number" min="4" name="level"/>
               </p>
               <button type="submit">입력</button>
             </form>

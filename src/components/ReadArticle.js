@@ -8,9 +8,13 @@ class ReadArticle extends Component {
           <article>
             <h2>{this.props.title}</h2>
             <p>{this.props.desc}</p>
+              { this.props.level &&
+            <p>Level:{this.props.level}</p>
+          }
+          {/* (조건)? 참일때 할일 : 거짓일 떄 할일 
+          조건 || 할일
+          조건 && 할일*/}
           </article>
-          
-        
         </section>
       )
     }
