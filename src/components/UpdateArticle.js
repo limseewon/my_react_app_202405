@@ -1,19 +1,20 @@
 import { Component } from 'react';
 
 class UpdateArticle extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            id: this.props.data.id,
-            title:this.props.data.title,
-            desc:this.props.data.desc,
-        }
+  constructor(props){
+    super(props);
+    this.state = {
+      id:this.props.data.id,
+      title:this.props.data.title,
+      desc:this.props.data.desc,
     }
-    inputFormHander(e){
-        this.setState({
-            [e.target.name]:e.target.value    //[대괄호 안에 쓴 문법 computed property name 계산된 속성 이름 문법]
-        })
-    }
+  }
+  inputFormHander(e){
+    this.setState({
+      [e.target.name]:e.target.value
+    })
+  }
+
     render() {
       console.log("UpdateArticle 실행"); 
       return (
@@ -25,27 +26,32 @@ class UpdateArticle extends Component {
               // debugger;
               this.props.onSubmit(
                 this.state.id,
-                e.target.title.value,
-                 e.target.desc.value);
+                e.target.title.value, 
+                e.target.desc.value
+              );
+
             }}>
-                <input type="hidden" name="id" value={this.state.id}/>
+              <input type="hidden" name="id" value={this.state.id}/>
               <p>
                 <input 
-                type="text" 
-                name="title" 
-                placeholder="title" 
-                value={this.state.title}
-                onChange={e=>{
+                  type="text" 
+                  name="title" 
+                  placeholder="title" 
+                  value={this.state.title}
+                  onChange={e=>{
                     this.inputFormHander(e);
-                }}
+                  }}
                 />
               </p>
               <p>
-                <textarea name="desc" placeholder="description" 
+                <textarea 
+                name="desc" 
+                placeholder="description"
                 onChange={e=>{
-                    this.inputFormHander(e);
-                }}value={this.state.desc}>
-                </textarea>
+                  this.inputFormHander(e);
+                }}
+                value={this.state.desc}              
+                ></textarea>
               </p>
               <button type="submit">입력</button>
             </form>

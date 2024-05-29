@@ -1,23 +1,21 @@
 import { Component } from 'react';
-
-class Myheader extends Component {
-  shouldComponentUpdate(){
+class Myheader extends Component {  
+  shouldComponentUpdate(){        
     return false;
-}
-    render(){
-        console.log("헤더 실행");
-        return (
-          <header>
+  }
+    render() {  
+      console.log("Myheader 실행"); 
+      return (
+        <header>
             <h1 className="logo">
-            <a href="" onClick={(e)=>{
-                  e.preventDefault();
-                  this.props.onChangePage('welcome');
-                }}
-                >{this.props.title}</a>
-                </h1>
+              <a href="" onClick={(e)=>{
+                e.preventDefault();
+                this.props.onChangePage('welcome');
+              }}>{this.props.title}</a> 
+              </h1>
             <p>{this.props.desc}</p>
-          </header>
-    );
+        </header>
+      )
     }
   }
   export default Myheader;
